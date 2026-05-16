@@ -1,0 +1,69 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Sansation:wght@300;400&display=swap");
+
+/* css variable */
+:root {
+  --main-font: "Architects Daughter", sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  background-image: url(./assets/81fun5OQOfL._AC_UF894\,1000_QL80_.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: var(--main-font);
+  font-size: 24px;
+}
+
+.main-container {
+  width: 90%;
+  margin: 70px auto 0 70px;
+}
+.c1_button {
+  font-family: var(--main-font);
+  margin-left: 2%;
+}
+
+.container2 {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.container3 {
+  display: none;
+  position: absolute;
+  top: 26%;
+  left: 40%;
+}
+.c3_textarea {
+  position: relative;
+  font-family: var(--main-font);
+  box-shadow: 10px 10px 24px 0 rgba(0, 0, 0, 0.5);
+  outline: none;
+  border: none;
+  width: 275px;
+  height: 275px;
+  padding: 20px;
+}
+
+#c3_check-icon {
+  position: absolute;
+  top: 0px;
+  left: 200px;
+  width: 1.7rem;
+}
+
+#c3_x-icon {
+  position: absolute;
+  top: 0px;
+  left: 240px;
+  width: 1.7rem;
+}
