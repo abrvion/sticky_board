@@ -1,10 +1,17 @@
-<<<<<<< HEAD
-# sticky_board
-This is a very use full sticky note web app to help people create sticky notes 
-=======
-# Vue 3 + Vite
+# Sticky Notes App 📝
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+A simple sticky notes project built using HTML, CSS, JavaScript and Vite.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
->>>>>>> adeefad (sticky board)
+## Features
+
+- Create notes
+- Random colors
+- Rotate notes
+- Limit system
+
+## Tech
+
+- HTML
+- CSS
+- JavaScript
+- Vite
