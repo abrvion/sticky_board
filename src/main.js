@@ -5,9 +5,20 @@ var createBtn = document.getElementsByClassName("c1_button")[0];
 var container2 = document.getElementsByClassName("container2")[0];
 var container3 = document.getElementsByClassName("container3")[0];
 var checkicon = document.getElementById("c3_check-icon");
-var xIcon = document.getElementById("c3_x-icon");
+var xIcon = document.getElementsByClassName("c3_x-icon")[0];
 var i = 0;
-var noteCount = 0;
+
+var notes = [];
+var savedNotes = localStorage.getItem("stickyNotes");
+if (savedNotes) {
+  notes = JSON.parse(savedNotes);
+  notes.forEach(renderNote);
+}
+
+//modal
+var noteModal = document.querySelector(".note-modal");
+var modalNote = document.querySelector(".modal-note");
+var closeModal = document.querySelector(".close-modal");
 
 checkicon.addEventListener("click", function () {
   createNote();
@@ -15,6 +26,10 @@ checkicon.addEventListener("click", function () {
 
 xIcon.addEventListener("click", function () {
   typeNote();
+});
+
+closeModal.addEventListener("click", function () {
+  noteModal.style.display = "none";
 });
 
 function typeNote() {
@@ -27,26 +42,59 @@ function typeNote() {
 createBtn.addEventListener("click", typeNote);
 
 function createNote() {
-  if (noteCount >= 20) {
-    alert("You can only create 20 notes. Delete some to add more.");
+  if (notes.length >= 18) {
+    alert("You can only create 18 notes. Delete some to add more.");
     return;
   }
+
   var noteText = document.getElementById("text-note").value;
+  var noteColor = color();
+  var noteRotate = rotate();
+  var noteMargin = margin();
+  var noteObject = {
+    id: Date.now(),
+    text: noteText,
+    color: noteColor,
+    rotate: noteRotate,
+    margin: noteMargin,
+  };
+  notes.push(noteObject);
+  localStorage.setItem("stickyNotes", JSON.stringify(notes));
+  renderNote(noteObject);
+}
+
+function renderNote(noteObject) {
+  var templateIcon = document.getElementsByClassName("c3_x-icon")[0];
+  var deleteIcon = templateIcon.cloneNode(true);
   var node0 = document.createElement("div");
   var node1 = document.createElement("h1");
 
-  node1.innerHTML = noteText;
-  node1.setAttribute(
-    "style",
-    " width: 275px; height: 275px;  padding: 20px;  box-shadow: 10px 10px 24px 0 rgba(0, 0, 0, 0.5);  font-size: 24px;",
-  );
+  node1.innerHTML = noteObject.text;
+  node1.classList.add("note");
 
-  node1.style.margin = margin();
-  node1.style.backgroundColor = color();
-  node1.style.transform = rotate();
+  node1.style.backgroundColor = noteObject.color;
+  node1.style.transform = noteObject.rotate;
+  node1.style.margin = noteObject.margin;
+  node0.dataset.id = noteObject.id;
+  node0.appendChild(deleteIcon);
+  deleteIcon.classList.add("note-delete");
   node0.appendChild(node1);
 
   container2.insertAdjacentElement("beforeend", node0);
+
+  // modal
+
+  node0.addEventListener("click", function () {
+    modalNote.innerHTML = noteObject.text;
+
+    modalNote.style.backgroundColor = noteObject.color;
+
+    modalNote.style.transform = noteObject.rotate;
+
+    noteModal.style.display = "flex";
+  });
+
+  //modal
 
   node0.addEventListener("mouseenter", function () {
     node0.style.transform = "scale(1.1)";
@@ -55,19 +103,23 @@ function createNote() {
   node0.addEventListener("mouseleave", function () {
     node0.style.transform = "scale(1)";
   });
+  //note deletion
+  deleteIcon.addEventListener("click", function (e) {
+    e.stopPropagation();
 
-  node0.addEventListener("dblclick", function () {
+    var id = Number(node0.dataset.id);
     node0.remove();
-    noteCount--;
+
+    notes = notes.filter((note) => note.id !== id);
+
+    localStorage.setItem("stickyNotes", JSON.stringify(notes));
   });
 
   document.getElementById("text-note").value = "";
-
-  noteCount++; // 🔥 increase count
 }
 
 function margin() {
-  var random_margin = ["-5px", "1px", "5px", "10px", "15px", "20px"];
+  var random_margin = ["1px", "5px", "10px", "15px", "20px"];
 
   return random_margin[Math.floor(Math.random() * random_margin.length)];
 }

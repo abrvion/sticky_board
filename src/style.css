@@ -12,12 +12,12 @@
 }
 body {
   height: 100vh;
-  width: 100vw;
   background-image: url(./assets/81fun5OQOfL._AC_UF894\,1000_QL80_.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   font-family: var(--main-font);
   font-size: 24px;
+  overflow: hidden;
 }
 
 .main-container {
@@ -52,6 +52,7 @@ body {
   width: 275px;
   height: 275px;
   padding: 20px;
+  z-index: 30;
 }
 
 #c3_check-icon {
@@ -59,11 +60,188 @@ body {
   top: 0px;
   left: 200px;
   width: 1.7rem;
+  z-index: 31;
 }
 
-#c3_x-icon {
+.c3_x-icon {
   position: absolute;
   top: 0px;
   left: 240px;
   width: 1.7rem;
+  z-index: 31;
+}
+
+.note {
+  box-shadow: 10px 10px 24px 0 rgba(0, 0, 0, 0.5);
+  width: clamp(120px, 18vw, 200px);
+  height: clamp(120px, 18vw, 200px);
+
+  font-size: clamp(12px, 1.2vw, 20px);
+
+  padding: clamp(8px, 1vw, 20px);
+  overflow: hidden;
+}
+
+/* modal  */
+
+.note-modal {
+  display: none;
+
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.6);
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999;
+}
+
+.note-modal-content {
+  position: relative;
+}
+
+.modal-note {
+  width: min(80vw, 500px);
+  min-height: 500px;
+
+  padding: 30px;
+
+  font-size: clamp(24px, 2vw, 32px);
+
+  box-shadow: 10px 10px 24px rgba(0, 0, 0, 0.5);
+
+  overflow-wrap: break-word;
+
+  overflow-y: auto;
+}
+/* modal close */
+.close-modal img {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 10px;
+  left: 420px;
+  z-index: 6;
+}
+
+/* note deletion */
+
+.note-delete {
+  position: relative;
+  top: 40px;
+  left: 170px;
+  width: 30px;
+  z-index: 5;
+
+  cursor: pointer;
+}
+
+/* media query  */
+
+@media (max-width: 1500px) {
+  .note {
+    width: 145px;
+    height: 145px;
+  }
+
+  .note-delete {
+    position: relative;
+    top: 40px;
+    left: 130px;
+    width: 30px;
+    z-index: 5;
+
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 1200px) {
+  .note {
+    width: 125px;
+    height: 125px;
+  }
+  .note-delete {
+    position: relative;
+    top: 40px;
+    left: 110px;
+    width: 20px;
+    z-index: 5;
+
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 992px) {
+  .note {
+    width: 120px;
+    height: 120px;
+  }
+
+  .note-delete {
+    position: relative;
+    top: 40px;
+    left: 100px;
+    width: 20px;
+    z-index: 5;
+
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 768px) {
+  .note {
+    width: 115px;
+    height: 115px;
+  }
+
+  .note-delete {
+    position: relative;
+    top: 40px;
+    left: 90px;
+    width: 20px;
+    z-index: 5;
+
+    cursor: pointer;
+  }
+}
+@media (max-width: 576px) {
+  .note {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    font-size: 5px;
+  }
+
+  .container3 {
+    display: none;
+    position: absolute;
+    top: 26%;
+    left: 30%;
+  }
+
+  .close-modal img {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 10px;
+    left: 270px;
+    z-index: 6;
+  }
+
+  .note-delete {
+    position: relative;
+    top: 40px;
+    left: 40px;
+    width: 15px;
+    z-index: 5;
+
+    cursor: pointer;
+  }
 }
