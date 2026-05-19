@@ -214,6 +214,13 @@ body {
     height: 115px;
   }
 
+  .container3 {
+    display: none;
+    position: absolute;
+    top: 26%;
+    left: 35%;
+  }
+
   .note-delete {
     position: relative;
     top: 40px;
@@ -236,7 +243,7 @@ body {
     display: none;
     position: absolute;
     top: 26%;
-    left: 30%;
+    left: 20%;
   }
 
   .close-modal img {

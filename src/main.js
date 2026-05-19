@@ -18,6 +18,10 @@ if (savedNotes) {
   notes.forEach(renderNote);
 }
 
+// sound effect
+const openSound = new Audio("/paper-create.mp3");
+const closeSound = new Audio("/paper-close.mp3");
+
 //modal declare
 var noteModal = document.querySelector(".note-modal");
 var modalNote = document.querySelector(".modal-note");
@@ -36,6 +40,9 @@ xIcon.addEventListener("click", function () {
 // modal close icon function
 closeModal.addEventListener("click", function () {
   noteModal.style.display = "none";
+  //sound effect
+  closeSound.currentTime = 0;
+  closeSound.play();
 });
 
 // typenote function
@@ -46,7 +53,9 @@ function typeNote() {
     container3.style.display = "none";
   }
 }
-createBtn.addEventListener("click", typeNote);
+createBtn.addEventListener("click", function () {
+  container3.style.display = "block";
+});
 
 //create note function
 function createNote() {
@@ -54,6 +63,10 @@ function createNote() {
     alert("You can only create 18 notes. Delete some to add more.");
     return;
   }
+
+  //sound effect
+  openSound.currentTime = 0;
+  openSound.play();
   // note text and style declare
   var noteText = document.getElementById("text-note").value;
   var noteColor = color();
@@ -71,6 +84,10 @@ function createNote() {
   notes.push(noteObject);
   localStorage.setItem("stickyNotes", JSON.stringify(notes));
   renderNote(noteObject);
+
+  // hide type note
+  document.getElementById("text-note").value = "";
+  container3.style.display = "none";
 }
 
 //reload render function
@@ -103,6 +120,10 @@ function renderNote(noteObject) {
     modalNote.style.transform = noteObject.rotate;
 
     noteModal.style.display = "flex";
+
+    //sound effect
+    openSound.currentTime = 0;
+    openSound.play();
   });
 
   //note hover scale
@@ -125,6 +146,10 @@ function renderNote(noteObject) {
     notes = notes.filter((note) => note.id !== id);
 
     localStorage.setItem("stickyNotes", JSON.stringify(notes));
+
+    //sound effect
+    closeSound.currentTime = 0;
+    closeSound.play();
   });
 
   document.getElementById("text-note").value = "";
