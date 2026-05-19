@@ -24,11 +24,15 @@ body {
   width: 90%;
   margin: 70px auto 0 70px;
 }
+
+/* creating btn  */
 .c1_button {
   font-family: var(--main-font);
   margin-left: 2%;
 }
+/* creating btn end  */
 
+/* note container  */
 .container2 {
   display: flex;
   justify-content: flex-start;
@@ -36,13 +40,16 @@ body {
   margin-top: 20px;
   margin-left: 20px;
 }
+/* note container end */
 
+/* creat note container */
 .container3 {
   display: none;
   position: absolute;
   top: 26%;
   left: 40%;
 }
+
 .c3_textarea {
   position: relative;
   font-family: var(--main-font);
@@ -70,7 +77,9 @@ body {
   width: 1.7rem;
   z-index: 31;
 }
+/* creat note container  end*/
 
+/* js note style rending */
 .note {
   box-shadow: 10px 10px 24px 0 rgba(0, 0, 0, 0.5);
   width: clamp(120px, 18vw, 200px);
@@ -81,8 +90,9 @@ body {
   padding: clamp(8px, 1vw, 20px);
   overflow: hidden;
 }
+/* js note style rending */
 
-/* modal  */
+/* note modal */
 
 .note-modal {
   display: none;
@@ -121,6 +131,7 @@ body {
 
   overflow-y: auto;
 }
+
 /* modal close */
 .close-modal img {
   position: absolute;
@@ -130,6 +141,8 @@ body {
   left: 420px;
   z-index: 6;
 }
+
+/* note modal end */
 
 /* note deletion */
 
