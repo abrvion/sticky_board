@@ -54,11 +54,12 @@ function createNote() {
     alert("You can only create 18 notes. Delete some to add more.");
     return;
   }
-
+  // note text and style declare
   var noteText = document.getElementById("text-note").value;
   var noteColor = color();
   var noteRotate = rotate();
   var noteMargin = margin();
+  // note data object declare
   var noteObject = {
     id: Date.now(),
     text: noteText,
@@ -66,6 +67,7 @@ function createNote() {
     rotate: noteRotate,
     margin: noteMargin,
   };
+  // note saved to local storage
   notes.push(noteObject);
   localStorage.setItem("stickyNotes", JSON.stringify(notes));
   renderNote(noteObject);
