@@ -25,6 +25,11 @@ body {
   margin: 70px auto 0 70px;
 }
 
+.container1 {
+  display: flex;
+  gap: 10px;
+}
+
 /* creating btn  */
 .c1_button {
   font-family: var(--main-font);
@@ -89,6 +94,10 @@ body {
 
   padding: clamp(8px, 1vw, 20px);
   overflow: hidden;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 /* js note style rending */
 

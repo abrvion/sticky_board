@@ -1,6 +1,16 @@
 // style linking
 import "./style.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+//themes import
+import { themes } from "./components/themes.js";
+
+let currentTheme = "classic";
+const savedTheme = localStorage.getItem("activeTheme");
+
+if (savedTheme) {
+  currentTheme = savedTheme;
+}
+
 // creat btn declare
 var createBtn = document.getElementsByClassName("c1_button")[0];
 // containers declare
@@ -10,13 +20,16 @@ var container3 = document.getElementsByClassName("container3")[0];
 var checkicon = document.getElementById("c3_check-icon");
 var xIcon = document.getElementsByClassName("c3_x-icon")[0];
 var i = 0;
+
 // note data save check and rendering
 var notes = [];
 var savedNotes = localStorage.getItem("stickyNotes");
 if (savedNotes) {
   notes = JSON.parse(savedNotes);
-  notes.forEach(renderNote);
 }
+
+applyTheme(currentTheme);
+notes.forEach(renderNote);
 
 // sound effect
 const openSound = new Audio("/paper-create.mp3");
@@ -27,8 +40,17 @@ var noteModal = document.querySelector(".note-modal");
 var modalNote = document.querySelector(".modal-note");
 var closeModal = document.querySelector(".close-modal");
 
-// creat note  icon functions
+//theme declaraion
+const themeButtons = document.querySelectorAll(".dropdown-item");
 
+themeButtons.forEach((button) => {
+  button.addEventListener("click", function () {
+    const selectedTheme = button.dataset.theme;
+    applyTheme(selectedTheme);
+  });
+});
+
+// creat note  icon functions
 checkicon.addEventListener("click", function () {
   createNote();
 });
@@ -40,7 +62,6 @@ xIcon.addEventListener("click", function () {
 // modal close icon function
 closeModal.addEventListener("click", function () {
   noteModal.style.display = "none";
-  //sound effect
   closeSound.currentTime = 0;
   closeSound.play();
 });
@@ -53,6 +74,7 @@ function typeNote() {
     container3.style.display = "none";
   }
 }
+
 createBtn.addEventListener("click", function () {
   container3.style.display = "block";
 });
@@ -64,28 +86,29 @@ function createNote() {
     return;
   }
 
-  //sound effect
+  const noteText = document.getElementById("text-note").value.trim();
+  if (!noteText) return;
+
   openSound.currentTime = 0;
   openSound.play();
-  // note text and style declare
-  var noteText = document.getElementById("text-note").value;
-  var noteColor = color();
+
   var noteRotate = rotate();
   var noteMargin = margin();
-  // note data object declare
+
+  const noteStyle = getNoteStyle();
+
   var noteObject = {
     id: Date.now(),
     text: noteText,
-    color: noteColor,
+    style: noteStyle,
     rotate: noteRotate,
     margin: noteMargin,
   };
-  // note saved to local storage
+
   notes.push(noteObject);
   localStorage.setItem("stickyNotes", JSON.stringify(notes));
   renderNote(noteObject);
 
-  // hide type note
   document.getElementById("text-note").value = "";
   container3.style.display = "none";
 }
@@ -94,15 +117,31 @@ function createNote() {
 function renderNote(noteObject) {
   var templateIcon = document.getElementsByClassName("c3_x-icon")[0];
   var deleteIcon = templateIcon.cloneNode(true);
+
   var node0 = document.createElement("div");
   var node1 = document.createElement("h1");
+
+  node0.style.cursor = "pointer";
 
   node1.innerHTML = noteObject.text;
   node1.classList.add("note");
 
-  node1.style.backgroundColor = noteObject.color;
+  const theme = themes[currentTheme] || themes.classic;
+  node1.style.padding = theme.notePadding || "10px";
+
   node1.style.transform = noteObject.rotate;
   node1.style.margin = noteObject.margin;
+
+  const style = noteObject.style || { type: "color", value: "#fff" };
+
+  if (style.type === "color") {
+    node1.style.backgroundColor = style.value;
+  } else {
+    node1.style.backgroundImage = `url(${style.value})`;
+    node1.style.backgroundSize = "cover";
+    node1.style.backgroundPosition = "center";
+  }
+
   node0.dataset.id = noteObject.id;
   node0.appendChild(deleteIcon);
   deleteIcon.classList.add("note-delete");
@@ -110,23 +149,31 @@ function renderNote(noteObject) {
 
   container2.insertAdjacentElement("beforeend", node0);
 
-  // note modal
-
-  node0.addEventListener("click", function () {
+  // ✅ FIXED MODAL OPEN (THIS WAS THE BUG)
+  node0.addEventListener("click", function (e) {
+    if (e.target.classList.contains("note-delete")) return;
+    const theme = themes[currentTheme] || themes.classic;
     modalNote.innerHTML = noteObject.text;
+    modalNote.style.padding = theme.modalPadding || "24px";
 
-    modalNote.style.backgroundColor = noteObject.color;
+    const style = noteObject.style || { type: "color", value: "#fff" };
 
-    modalNote.style.transform = noteObject.rotate;
+    if (style.type === "color") {
+      modalNote.style.backgroundColor = style.value;
+      modalNote.style.backgroundImage = "none";
+    } else {
+      modalNote.style.backgroundImage = `url(${style.value})`;
+      modalNote.style.backgroundSize = "cover";
+      modalNote.style.backgroundPosition = "center";
+      modalNote.style.backgroundColor = "transparent";
+    }
 
+    // 🔥 CRITICAL FIX
     noteModal.style.display = "flex";
 
-    //sound effect
     openSound.currentTime = 0;
     openSound.play();
   });
-
-  //note hover scale
 
   node0.addEventListener("mouseenter", function () {
     node0.style.transform = "scale(1.1)";
@@ -136,7 +183,6 @@ function renderNote(noteObject) {
     node0.style.transform = "scale(1)";
   });
 
-  //note deletion
   deleteIcon.addEventListener("click", function (e) {
     e.stopPropagation();
 
@@ -147,7 +193,6 @@ function renderNote(noteObject) {
 
     localStorage.setItem("stickyNotes", JSON.stringify(notes));
 
-    //sound effect
     closeSound.currentTime = 0;
     closeSound.play();
   });
@@ -158,7 +203,6 @@ function renderNote(noteObject) {
 // margin function
 function margin() {
   var random_margin = ["1px", "5px", "10px", "15px", "20px"];
-
   return random_margin[Math.floor(Math.random() * random_margin.length)];
 }
 
@@ -172,7 +216,6 @@ function rotate() {
     "rotate(-5deg)",
     "rotate(-8deg)",
   ];
-
   return random_degree[Math.floor(Math.random() * random_degree.length)];
 }
 
@@ -192,4 +235,37 @@ function color() {
   }
 
   return random_colors[i++];
+}
+
+// themes apply
+function applyTheme(themeName) {
+  currentTheme = themeName;
+
+  const theme = themes[themeName];
+
+  document.body.style.backgroundImage = theme.bg ? `url(${theme.bg})` : "none";
+
+  document.body.dataset.theme = themeName;
+
+  localStorage.setItem("activeTheme", themeName);
+}
+
+// style decider
+function getNoteStyle() {
+  const theme = themes[currentTheme] || themes.classic;
+
+  if (!theme.noteSkins) {
+    return {
+      type: "color",
+      value: color(),
+    };
+  }
+
+  const skins = theme.noteSkins;
+  const randomSkin = skins[Math.floor(Math.random() * skins.length)];
+
+  return {
+    type: "image",
+    value: randomSkin,
+  };
 }
