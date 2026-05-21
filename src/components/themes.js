@@ -13,7 +13,7 @@ export const themes = {
       "/themes/jjk/toki.png",
     ],
     notePadding: "50px",
-    modalPadding: "105px",
+    modalPadding: "115px",
   },
 
   frieren: {
