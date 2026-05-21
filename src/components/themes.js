@@ -12,8 +12,10 @@ export const themes = {
       "/themes/jjk/toke.png",
       "/themes/jjk/toki.png",
     ],
+    mobileNotePadding: "15px",
     notePadding: "50px",
     modalPadding: "115px",
+    modalMoPadding: "90px 70px 0px 40px",
   },
 
   frieren: {
@@ -26,6 +28,8 @@ export const themes = {
       "/themes/frieren/stark.png",
     ],
     notePadding: "35px",
+    mobileNotePadding: "10px",
     modalPadding: "80px",
+    modalMoPadding: "90px 70px 0px 40px",
   },
 };

@@ -127,7 +127,11 @@ function renderNote(noteObject) {
   node1.classList.add("note");
 
   const theme = themes[currentTheme] || themes.classic;
-  node1.style.padding = theme.notePadding || "10px";
+  if (window.innerWidth <= 768) {
+    node1.style.padding = theme.mobileNotePadding || "30px";
+  } else {
+    node1.style.padding = theme.notePadding || "90px";
+  }
 
   node1.style.transform = noteObject.rotate;
   node1.style.margin = noteObject.margin;
@@ -139,6 +143,7 @@ function renderNote(noteObject) {
   } else {
     node1.style.backgroundImage = `url(${style.value})`;
     node1.style.backgroundSize = "cover";
+    node1.style.backgroundRepeat = "no-repeat";
     node1.style.backgroundPosition = "center";
   }
 
@@ -154,7 +159,12 @@ function renderNote(noteObject) {
     if (e.target.classList.contains("note-delete")) return;
     const theme = themes[currentTheme] || themes.classic;
     modalNote.innerHTML = noteObject.text;
-    modalNote.style.padding = theme.modalPadding || "24px";
+    // modalNote.style.padding = theme.modalPadding || "24px";
+    if (window.innerWidth <= 768) {
+      modalNote.style.padding = theme.modalMoPadding || "30px";
+    } else {
+      modalNote.style.padding = theme.modalPadding || "90px";
+    }
 
     const style = noteObject.style || { type: "color", value: "#fff" };
 
