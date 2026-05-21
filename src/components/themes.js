@@ -7,7 +7,7 @@ export const themes = {
     bg: "/themes/jjk/background.jpg",
     noteSkins: [
       "/themes/jjk/gojo.png",
-      "/themes/jjk/nobara.png",
+      "/themes/jjk/noabara.png",
       "/themes/jjk/toji.png",
       "/themes/jjk/toke.png",
       "/themes/jjk/toki.png",
