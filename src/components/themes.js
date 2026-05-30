@@ -3,7 +3,7 @@ export const themes = {
     bg: "/themes/classic/bp.jpg",
     noteSkins: null,
 
-    notePadding: "20px",
+    notePadding: "40px",
     modalPadding: "30px",
     mobileNotePadding: "10px",
   },
