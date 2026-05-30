@@ -2,6 +2,10 @@ export const themes = {
   classic: {
     bg: "/themes/classic/bg.jpg",
     noteSkins: null,
+
+    notePadding: "20px",
+    modalPadding: "30px",
+    modalMoPadding: "90px 70px 0px 40px",
   },
   jjk: {
     bg: "/themes/jjk/background.jpg",
