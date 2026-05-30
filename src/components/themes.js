@@ -7,6 +7,7 @@ export const themes = {
     modalPadding: "30px",
     mobileNotePadding: "10px",
   },
+
   jjk: {
     bg: "/themes/jjk/background.jpg",
     noteSkins: [
