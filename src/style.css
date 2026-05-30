@@ -96,7 +96,7 @@ body {
 
   font-size: clamp(12px, 1.2vw, 20px);
 
-  padding: clamp(8px, 1vw, 20px);
+  padding: clamp(8px, 1vw, 30px);
 
   overflow: hidden;
 
