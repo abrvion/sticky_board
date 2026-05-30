@@ -1,6 +1,6 @@
 export const themes = {
   classic: {
-    bg: "/themes/classic/bg.jpg",
+    bg: "/themes/classic/bp.jpg",
     noteSkins: null,
 
     notePadding: "20px",
