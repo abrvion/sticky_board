@@ -17,7 +17,7 @@ export const themes = {
       "/themes/jjk/toki.png",
     ],
     mobileNotePadding: "15px",
-    notePadding: "50px",
+    notePadding: "35px",
     modalPadding: "115px",
     modalMoPadding: "90px 70px 0px 40px",
   },
