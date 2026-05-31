@@ -4,7 +4,7 @@ Sticky Board is a customizable sticky notes application built with JavaScript, C
 
 Create notes, switch between unique themes, and keep everything saved automatically using LocalStorage.
 
-visit site : https://app.netlify.com/teams/rahimmiah09/projects
+visit site : https://stickyboard00.netlify.app/
 
 ## Features 🌐🌸
 
