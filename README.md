@@ -32,7 +32,9 @@ npm install
 npm run dev
 ```
 
-[![Watch Demo Reel](docs/demo-thumbnail.png)]([https://www.instagram.com/reel/REEL_ID/](https://www.instagram.com/abrvion/reel/DZALmKvzMzM/))
+## Demo Reel
+
+[![Instagram Reel](https://img.shields.io/badge/Watch%20on-Instagram-E4405F?logo=instagram&logoColor=white)](https://www.instagram.com/abrvion/reel/DZALmKvzMzM/)
 
 ## Author
 
