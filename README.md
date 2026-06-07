@@ -8,20 +8,21 @@ visit site : https://stickyboard00.netlify.app/
 
 ## Features 🌐🌸
 
-* 📝 Create and delete notes
-* 🎨 Multiple custom themes
-* 🖼️ Theme-specific note skins
-* 💾 Persistent storage with LocalStorage
-* 📖 Note preview modal
-* 🎵 Sound effects
-* 📱 Responsive design
+- 📝 Create and delete notes
+- 🎨 Multiple custom themes
+- 🖼️ Theme-specific note skins
+- 💾 Persistent storage with LocalStorage
+- 📖 Note preview modal
+- 🎵 Sound effects
+- 📱 Responsive design
 
 ## Tech Stack 🚀
-* HTML
-* JavaScript
-* CSS3
-* Bootstrap 5
-* Vite
+
+- HTML
+- JavaScript
+- CSS3
+- Bootstrap 5
+- Vite
 
 ## Installation
 
@@ -34,8 +35,8 @@ npm run dev
 
 ## Demo Reel
 
-[![Instagram Reel](https://img.shields.io/badge/Watch%20on-Instagram-E4405F?logo=instagram&logoColor=white)](https://www.instagram.com/abrvion/reel/DZALmKvzMzM/)
+[![Watch the Reel](assets/1000074289.png)](https://www.instagram.com/abrvion/reel/DZALmKvzMzM/)
 
 ## Author
 
-Abrvion  
+Abrvion
