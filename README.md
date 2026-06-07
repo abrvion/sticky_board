@@ -35,6 +35,8 @@ npm run dev
 
 ## Demo Reel
 
+- click the thumbnail 🚀🌐
+
 [![Watch the Reel](1000074289.png)](https://www.instagram.com/abrvion/reel/DZALmKvzMzM/)
 
 ## Author
