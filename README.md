@@ -32,6 +32,8 @@ npm install
 npm run dev
 ```
 
+[![Watch Demo Reel](docs/demo-thumbnail.png)]([https://www.instagram.com/reel/REEL_ID/](https://www.instagram.com/abrvion/reel/DZALmKvzMzM/))
+
 ## Author
 
 Abrvion  
