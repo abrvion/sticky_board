@@ -6,6 +6,12 @@ Create notes, switch between unique themes, and keep everything saved automatica
 
 🌐Visit the site: https://stickyboard00.netlify.app/
 
+- click the thumbnail 🚀🌐
+
+<a href="https://www.instagram.com/abrvion/reel/DZALmKvzMzM/">
+  <img src="1000074289.png" alt="Watch the Reel" width="400">
+</a>
+
 ## Features 🌸
 
 - 📝 Create and delete notes
@@ -35,9 +41,7 @@ npm run dev
 
 ## Demo Reel
 
-- click the thumbnail 🚀🌐
 
-[![Watch the Reel](1000074289.png)](https://www.instagram.com/abrvion/reel/DZALmKvzMzM/)
 
 ## Author
 
