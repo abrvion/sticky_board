@@ -6,10 +6,10 @@ Create notes, switch between unique themes, and keep everything saved automatica
 
 🌐Visit the site: https://stickyboard00.netlify.app/
 
-- click the thumbnail 🚀🌐
+- Click the thumbnail 🚀🌐
 
 <a href="https://www.instagram.com/abrvion/reel/DZALmKvzMzM/">
-  <img src="1000074289.png" alt="Watch the Reel" width="400">
+  <img src="1000074289.png" alt="Watch the Reel" width="300">
 </a>
 
 ## Features 🌸
