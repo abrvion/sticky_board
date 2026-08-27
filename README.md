@@ -1,4 +1,4 @@
-### 📝 Sticky Board
+## 📝 Sticky Board
 
 <p align="center">
   <a href="https://stickyboard00.netlify.app/">Live Demo</a> •
