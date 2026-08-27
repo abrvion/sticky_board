@@ -1,7 +1,7 @@
 ### 📝 Sticky Board
 
 <p align="center">
-  <a href="https://your-demo.com">Live Demo</a> •
+  <a href="[https://your-demo.com](https://stickyboard00.netlify.app/)">Live Demo</a> •
   <a href="#installation">Installation</a> •
   <a href="#documentation">Documentation</a> •
   <a href="#contributing">Contributing</a>
@@ -11,7 +11,7 @@ Sticky Board is a customizable sticky notes application built with JavaScript, C
 
 Create notes, switch between unique themes, and keep everything saved automatically using LocalStorage.
 
-🌐Visit the site: https://stickyboard00.netlify.app/
+🌐Visit the site: 
 
 - Click the thumbnail 🚀🌐
 
