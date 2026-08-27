@@ -1,4 +1,11 @@
-# 📝 Sticky Board
+### 📝 Sticky Board
+
+<p align="center">
+  <a href="https://your-demo.com">Live Demo</a> •
+  <a href="#installation">Installation</a> •
+  <a href="#documentation">Documentation</a> •
+  <a href="#contributing">Contributing</a>
+</p>
 
 Sticky Board is a customizable sticky notes application built with JavaScript, CSS, and Bootstrap.
 
@@ -12,7 +19,7 @@ Create notes, switch between unique themes, and keep everything saved automatica
   <img src="1000074289.png" alt="Watch the Reel" width="300">
 </a>
 
-## Features 🌸
+#### Features 🌸
 
 - 📝 Create and delete notes
 - 🎨 Multiple custom themes
@@ -22,7 +29,7 @@ Create notes, switch between unique themes, and keep everything saved automatica
 - 🎵 Sound effects
 - 📱 Responsive design
 
-## Tech Stack 🚀
+#### Tech Stack 🚀
 
 - HTML
 - JavaScript
@@ -30,7 +37,7 @@ Create notes, switch between unique themes, and keep everything saved automatica
 - Bootstrap 5
 - Vite
 
-## Installation
+#### Installation
 
 ```bash
 git clone https://github.com/abrvion/sticky_board.git
@@ -39,7 +46,7 @@ npm install
 npm run dev
 ```
 
-## Demo Reel
+#### Demo Reel
 
 
 
