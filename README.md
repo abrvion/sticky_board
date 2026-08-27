@@ -1,7 +1,7 @@
 ### 📝 Sticky Board
 
 <p align="center">
-  <a href="[https://your-demo.com](https://stickyboard00.netlify.app/)">Live Demo</a> •
+  <a href="https://stickyboard00.netlify.app/">Live Demo</a> •
   <a href="#installation">Installation</a> •
   <a href="#documentation">Documentation</a> •
   <a href="#contributing">Contributing</a>
