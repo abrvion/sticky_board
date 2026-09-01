@@ -47,9 +47,5 @@ npm run dev
 ```
 
 #### Demo Reel
-
-
-
 ## Author
-
 Abrvion
